@@ -1,0 +1,13 @@
+name: worlflow
+
+on: push
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - run: make setup  
+      - run: make test 
+      - run: make lint 
